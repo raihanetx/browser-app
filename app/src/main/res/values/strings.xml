@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Browser</string>
+    <string name="search_or_enter_url">Search or enter URL</string>
+    <string name="go">Go</string>
+    <string name="back">Back</string>
+    <string name="forward">Forward</string>
+    <string name="refresh">Refresh</string>
+    <string name="share">Share</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="desktop_mode">Desktop mode</string>
+    <string name="open_in_browser">Open in external browser</string>
+    <string name="clear_data">Clear cookies &amp; data</string>
+    <string name="new_tab">New tab</string>
+    <string name="open_tabs">Open tabs</string>
+    <string name="settings">Settings</string>
+</resources>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/drag_handle" />
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TIER 1: Peek — Search/Address Bar Only     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/tier1Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="24dp"
+            app:boxCornerRadiusBottomStart="24dp"
+            app:boxCornerRadiusTopEnd="24dp"
+            app:boxCornerRadiusTopStart="24dp"
+            app:boxStrokeColor="@color/primary"
+            app:boxBackgroundColor="@color/surface_variant"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/on_surface_variant"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="1dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/search_or_enter_url"
+                android:inputType="textUri"
+                android:imeOptions="actionGo"
+                android:maxLines="1"
+                android:textSize="14sp"
+                android:textColor="@color/on_surface"
+                android:textColorHint="@color/on_surface_variant"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="4dp"
+                android:gravity="center_vertical" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSearchGo"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:icon="@drawable/ic_arrow_forward"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/on_secondary_container"
+            app:cornerRadius="20dp"
+            app:backgroundTint="@color/secondary_container"
+            android:contentDescription="@string/go" />
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TIER 2: Mid — Navigation + Title            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/tier2Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:alpha="0"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/on_surface_variant"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            tools:text="Page Title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingVertical="4dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBack"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:icon="@drawable/ic_back"
+                app:iconTint="@color/on_surface"
+                app:iconSize="24dp"
+                android:contentDescription="@string/back" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnForward"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_forward"
+                app:iconTint="@color/on_surface"
+                app:iconSize="24dp"
+                android:contentDescription="@string/forward" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRefresh"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_refresh"
+                app:iconTint="@color/on_surface"
+                app:iconSize="24dp"
+                android:contentDescription="@string/refresh" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_share"
+                app:iconTint="@color/on_surface"
+                app:iconSize="24dp"
+                android:contentDescription="@string/share" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookmark"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_bookmark"
+                app:iconTint="@color/on_surface"
+                app:iconSize="24dp"
+                android:contentDescription="@string/bookmark" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/outline_variant" />
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TIER 3: Full — Advanced Controls            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <ScrollView
+        android:id="@+id/tier3Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="24dp"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Desktop Mode Toggle -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_desktop"
+                    android:contentDescription="@null"
+                    app:tint="@color/on_surface" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/desktop_mode"
+                    android:textSize="15sp"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginStart="16dp" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switchDesktopMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:thumbTint="@color/primary"
+                    app:trackTint="@color/surface_variant" />
+
+            </LinearLayout>
+
+            <!-- Open in External Browser -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenExternal"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/open_in_browser"
+                android:textAlignment="textStart"
+                android:gravity="center_vertical|start"
+                app:icon="@drawable/ic_external"
+                app:iconGravity="textStart"
+                app:iconTint="@color/on_surface"
+                android:layout_marginTop="4dp" />
+
+            <!-- Clear Data -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearData"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/clear_data"
+                android:textAlignment="textStart"
+                android:gravity="center_vertical|start"
+                app:icon="@drawable/ic_delete"
+                app:iconGravity="textStart"
+                app:iconTint="@color/on_surface"
+                android:layout_marginTop="4dp" />
+
+            <!-- New Tab -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNewTab"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/new_tab"
+                android:textAlignment="textStart"
+                android:gravity="center_vertical|start"
+                app:icon="@drawable/ic_add_tab"
+                app:iconGravity="textStart"
+                app:iconTint="@color/on_surface"
+                android:layout_marginTop="4dp" />
+
+            <!-- Tab Counter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_tab"
+                    android:contentDescription="@null"
+                    app:tint="@color/on_surface" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/open_tabs"
+                    android:textSize="15sp"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginStart="16dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    app:cardBackgroundColor="@color/primary_container"
+                    app:cardCornerRadius="12dp"
+                    app:strokeWidth="0dp">
+
+                    <TextView
+                        android:id="@+id/tvTabCounter"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_primary_container"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Settings -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettings"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/settings"
+                android:textAlignment="textStart"
+                android:gravity="center_vertical|start"
+                app:icon="@drawable/ic_settings"
+                app:iconGravity="textStart"
+                app:iconTint="@color/on_surface"
+                android:layout_marginTop="4dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="32dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
